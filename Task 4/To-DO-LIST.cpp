@@ -3,16 +3,26 @@
 #include <string>
 using namespace std;
 
-class to_list
+class Task
+{
+public:
+    string description;
+    bool completed;
+
+    Task(string desc) : description(desc), completed(false) {}
+};
+
+class ToDoList
 {
 private:
-    vector<string> list;
+    vector<Task> list;
 
 public:
     void add(string task)
     {
-        list.push_back(task);
+        list.push_back(Task(task));
     }
+
     void view()
     {
         if (list.empty())
@@ -23,10 +33,11 @@ public:
 
         for (int i = 0; i < list.size(); i++)
         {
-            cout << "Task " << i + 1 << " : " << list[i] << endl;
+            cout << "Task " << i + 1 << " [" << (list[i].completed ? "Completed" : "Pending") << "] : " << list[i].description << endl;
         }
     }
-    void delete_tasks(int n)
+
+    void deleteTask(int n)
     {
         if (n < 1 || n > list.size())
         {
@@ -35,36 +46,47 @@ public:
         }
         list.erase(list.begin() + n - 1);
     }
+
+    void markCompleted(int n)
+    {
+        if (n < 1 || n > list.size())
+        {
+            cout << "Invalid task number." << endl;
+            return;
+        }
+        list[n - 1].completed = true;
+    }
 };
 
 int main()
 {
-    cout << "***********************        To DO LIST        ***********************\n";
-    to_list l1;
+    cout << "***********************        To-DO-LIST        ***********************\n";
+    ToDoList toDoList;
     while (true)
     {
         int choice;
-        cout << "\nEnter 1 to see Task\n";
-        cout << "Enter 2 to delete Task\n";
-        cout << "Enter 3 to Add task\n";
+        cout << "\nEnter 1 to view tasks\n";
+        cout << "Enter 2 to delete a task\n";
+        cout << "Enter 3 to add a task\n";
+        cout << "Enter 4 to mark a task as completed\n";
         cout << "Enter 0 to exit\n";
         cin >> choice;
 
-        if (choice > 3 || choice < 0)
+        if (choice > 4 || choice < 0)
         {
             cout << "Invalid choice, choose again\n";
         }
         else if (choice == 1)
         {
-            l1.view();
+            toDoList.view();
         }
         else if (choice == 2)
         {
-            l1.view();
+            toDoList.view();
             int n;
-            cout << "Select Number of Task to delete: ";
+            cout << "Select task number to delete: ";
             cin >> n;
-            l1.delete_tasks(n);
+            toDoList.deleteTask(n);
         }
         else if (choice == 3)
         {
@@ -72,8 +94,17 @@ int main()
             cout << "Enter task: ";
             cin.ignore(); // Clear the input buffer
             getline(cin, task);
-            l1.add(task);
-            l1.view();
+            toDoList.add(task);
+            toDoList.view();
+        }
+        else if (choice == 4)
+        {
+            toDoList.view();
+            int n;
+            cout << "Select task number to mark as completed: ";
+            cin >> n;
+            toDoList.markCompleted(n);
+            toDoList.view();
         }
         else
         {
