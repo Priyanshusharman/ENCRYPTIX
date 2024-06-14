@@ -1,0 +1,10 @@
+IMAGE PROCESSING TOOL
+Build a tool that allows users to perform various image 
+processing operations like resizing, cropping, and filtering. 
+ Load Image: Allow users to load an image. 
+ Display Image: Display the loaded image in the application. 
+ Image Filters: Implement basic image filters like grayscale, blur, and sharpen. 
+ Color Adjustment: Allow users to adjust image colors, brightness, and contrast. 
+ Crop and Resize: Provide options to crop and resize the image.
+ Image Saving: Enable users to save the processed image. 
+ User Interface: Design a user-friendly interface for easy interaction

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\web degining\ENCRYPTIX\Task 5\build\CMakeFiles\6dedb6beb655208aab7153c611758e9f\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{624A6CD4-BC56-3211-A70A-4A9D58CB08DE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

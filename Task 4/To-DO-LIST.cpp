@@ -92,7 +92,9 @@ int main()
         {
             string task;
             cout << "Enter task: ";
-            cin.ignore(); // Clear the input buffer
+            // Clear the input buffer
+            cin.ignore(); 
+            
             getline(cin, task);
             toDoList.add(task);
             toDoList.view();
